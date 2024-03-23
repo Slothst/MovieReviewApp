@@ -26,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="155" y="811"/>
         </scene>
-        <!--Item-->
+        <!--홈-->
         <scene sceneID="YGb-07-4Lc">
             <objects>
                 <navigationController storyboardIdentifier="MainNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" id="nE9-2n-5QE" customClass="MainNavigationViewController" customModule="MovieReview" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="crh-je-yL3"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="crh-je-yL3"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xEJ-6h-kOk">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -51,12 +51,13 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="M00-oM-M3W" customClass="MainTabBarController" customModule="MovieReview" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bLX-nq-UcG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" systemColor="labelColor"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MHz-n8-cgC" kind="relationship" relationship="viewControllers" id="PLV-xP-bRf"/>
+                        <segue destination="nE9-2n-5QE" kind="relationship" relationship="viewControllers" id="mnq-Qo-H8k"/>
                         <segue destination="mof-jy-BX5" kind="relationship" relationship="viewControllers" id="4Ho-3Q-E3u"/>
                         <segue destination="lKk-P0-25C" kind="relationship" relationship="viewControllers" id="58Z-J4-nBG"/>
                     </connections>
@@ -87,17 +88,15 @@
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" referencedIdentifier="HomeViewController" id="MHz-n8-cgC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xX4-ty-v87"/>
-                    <navigationItem key="navigationItem" title="영화" id="49X-ki-sAk"/>
+                    <navigationItem key="navigationItem" id="49X-ki-sAk"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DS-zh-ZtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-796.18320610687022" y="810.56338028169023"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PLV-xP-bRf"/>
-    </inferredMetricsTieBreakers>
     <resources>
+        <image name="house" catalog="system" width="128" height="104"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">

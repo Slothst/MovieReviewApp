@@ -11,13 +11,15 @@ import Combine
 final class HomeViewModel {
     let network: NetworkService
     
+    @Published private(set) var movies = [Movie]()
+    
+    @Published var movieTapped = PassthroughSubject<Movie, Never>()
+    
     init(network: NetworkService) {
         self.network = network
     }
     
     var subscriptions = Set<AnyCancellable>()
-    
-    @Published private(set) var movies = [Movie]()
     
     func fetch() {
         let resource: Resource<MovieList> = Resource(

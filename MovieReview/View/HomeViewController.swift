@@ -24,10 +24,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "영화"
+        setupUI()
         configureCollectionView()
         bind()
         viewModel.fetch()
+    }
+    
+    private func setupUI() {
+        navigationItem.backButtonDisplayMode = .minimal
     }
     
     private func configureCollectionView() {
@@ -37,7 +41,7 @@ class HomeViewController: UIViewController {
                 guard let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: "MovieCell",
                     for: indexPath
-                ) as? MovieCell else {
+                ) as? PopularMovieCell else {
                     return nil
                 }
                 cell.configure(movie: item)
@@ -52,6 +56,8 @@ class HomeViewController: UIViewController {
         
         collectionView.collectionViewLayout = layout()
         collectionView.alwaysBounceVertical = false
+        
+        collectionView.delegate = self
     }
     
     private func applyItems(_ items: [Movie]) {
@@ -66,6 +72,13 @@ class HomeViewController: UIViewController {
             .sink { items in
                 self.applyItems(items)
             }.store(in: &subscriptions)
+        
+//        viewModel.$movieTapped
+//            .sink { movie in
+//                let sb = UIStoryboard(name: "Detail", bundle: nil)
+//                let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! HomeDetailViewController
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }.store(in: &subscriptions)
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -98,3 +111,13 @@ class HomeViewController: UIViewController {
     }
 }
 
+extension HomeViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = viewModel.movies[indexPath.item]
+        print(item.title)
+//        viewModel.movieTapped.send(item)
+        let sb = UIStoryboard(name: "Detail", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! HomeDetailViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
