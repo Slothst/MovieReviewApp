@@ -18,6 +18,7 @@ class MovieCell: UICollectionViewCell {
                 string: "https://image.tmdb.org/t/p/w200/\(movie.posterPath)"
             )
         )
+        moviePoster.contentMode = .scaleAspectFit
     }
     //https://image.tmdb.org/t/p/w120/wkfG7DaExmcVsGLR4kLouMwxeT5.jpg
 }

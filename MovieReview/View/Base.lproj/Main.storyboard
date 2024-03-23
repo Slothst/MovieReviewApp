@@ -87,7 +87,7 @@
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="Home" referencedIdentifier="HomeViewController" id="MHz-n8-cgC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xX4-ty-v87"/>
-                    <navigationItem key="navigationItem" id="49X-ki-sAk"/>
+                    <navigationItem key="navigationItem" title="영화" id="49X-ki-sAk"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2DS-zh-ZtC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -24,6 +24,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "영화"
         configureCollectionView()
         bind()
         viewModel.fetch()
@@ -70,13 +71,13 @@ class HomeViewController: UIViewController {
     private func layout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.33),
-            heightDimension: .absolute(120)
+            heightDimension: .absolute(200)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.8),
-            heightDimension: .absolute(120)
+            heightDimension: .absolute(200)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -87,10 +88,10 @@ class HomeViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .groupPagingCentered
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: -20,
+            top: -20,
+            leading: -10,
             bottom: 0,
-            trailing: 20
+            trailing: 0
         )
         section.interGroupSpacing = 10
         return UICollectionViewCompositionalLayout(section: section)
