@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     typealias Item = Movie
     
-    enum Section: Int, CaseIterable {
+    enum Section: CaseIterable {
         case popular
         case screening
         
@@ -51,8 +51,11 @@ class HomeViewController: UIViewController {
         datasource = UICollectionViewDiffableDataSource<Section, Item>(
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
-                guard let section = Section(rawValue: indexPath.section) else { return nil }
-                let cell = self.configureCell(for: section, item: item, collectionView: collectionView, indexPath: indexPath)
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "MovieCell",
+                    for: indexPath
+                ) as? MovieCell else { return nil }
+                cell.configure(movie: item)
                 return cell
             }
         )
@@ -82,26 +85,7 @@ class HomeViewController: UIViewController {
         snapshot.appendItems(items, toSection: section)
         datasource.apply(snapshot)
     }
-    
-    private func configureCell(for section: Section, item: Item, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell? {
-        switch section {
-        case .popular:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "PopularMovieCell",
-                for: indexPath
-            ) as! PopularMovieCell
-            cell.configure(movie: item)
-            return cell
-        case .screening:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "ScreeningMovieCell",
-                for: indexPath
-            ) as! ScreeningMovieCell
-            cell.configure(movie: item)
-            return cell
-        }
-    }
-    
+
     private func bind() {
         viewModel.$popularMovies
             .receive(on: RunLoop.main)

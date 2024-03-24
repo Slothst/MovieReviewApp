@@ -14,13 +14,13 @@
             filePath = "MovieReview/View/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "configureCollectionView()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "00E997C3-33B6-4093-852C-D8C017901F9B - 922526bc91adc1b2"
+                  uuid = "00E997C3-33B6-4093-852C-D8C017901F9B - 922526bc91adc25f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,11 +30,11 @@
                   urlString = "file:///Users/nak/Desktop/study/swift/MovieReview/MovieReview/View/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61">
+                  startingLineNumber = "64"
+                  endingLineNumber = "64">
                </Location>
                <Location
-                  uuid = "00E997C3-33B6-4093-852C-D8C017901F9B - 1a5199a473b0a979"
+                  uuid = "00E997C3-33B6-4093-852C-D8C017901F9B - 1a5199a473b0aa94"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -44,8 +44,8 @@
                   urlString = "file:///Users/nak/Desktop/study/swift/MovieReview/MovieReview/View/HomeViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61">
+                  startingLineNumber = "64"
+                  endingLineNumber = "64">
                </Location>
             </Locations>
          </BreakpointContent>

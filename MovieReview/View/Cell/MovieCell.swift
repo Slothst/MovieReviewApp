@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class PopularMovieCell: UICollectionViewCell {
+class MovieCell: UICollectionViewCell {
     
     @IBOutlet weak var moviePoster: UIImageView!
     
