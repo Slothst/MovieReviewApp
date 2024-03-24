@@ -60,7 +60,7 @@ class HomeViewController: UIViewController {
             }
         )
         
-        datasource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+        self.datasource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderCollectionReusableView", for: indexPath) as? TitleHeaderCollectionReusableView else { return nil }
             
             let allSections = Section.allCases
@@ -132,12 +132,17 @@ class HomeViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .paging
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 10,
+            top: 0,
             leading: 0,
             bottom: 10,
             trailing: 0
         )
         section.interGroupSpacing = 10
+        
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        section.boundarySupplementaryItems = [header]
+        
         return UICollectionViewCompositionalLayout(section: section)
     }
 }
