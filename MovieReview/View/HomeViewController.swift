@@ -73,12 +73,16 @@ class HomeViewController: UIViewController {
                 self.applyItems(items)
             }.store(in: &subscriptions)
         
-//        viewModel.$movieTapped
-//            .sink { movie in
-//                let sb = UIStoryboard(name: "Detail", bundle: nil)
-//                let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! HomeDetailViewController
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }.store(in: &subscriptions)
+        viewModel.movieTapped
+            .sink { movie in
+                let sb = UIStoryboard(name: "Detail", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! HomeDetailViewController
+                vc.viewModel = HomeDetailViewModel(
+                    network: NetworkService(configuration: .default),
+                    movieDetail: movie
+                )
+                self.navigationController?.pushViewController(vc, animated: true)
+            }.store(in: &subscriptions)
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
@@ -114,10 +118,6 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let item = viewModel.movies[indexPath.item]
-        print(item.title)
-//        viewModel.movieTapped.send(item)
-        let sb = UIStoryboard(name: "Detail", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! HomeDetailViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        viewModel.movieTapped.send(item)
     }
 }

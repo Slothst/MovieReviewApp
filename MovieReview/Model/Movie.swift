@@ -25,4 +25,16 @@ struct Movie: Hashable, Identifiable, Decodable {
         case title
         case voteAverage = "vote_average"
     }
+    
+    var imageURL: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w200/\(posterPath)")
+    }
+    
+    var roundedVoteAverage: String {
+        return "평점 ⭐️ \(round(voteAverage * 10 / 10))"
+    }
+    
+    var release: String {
+        return "개봉일 : \(releaseDate)"
+    }
 }
