@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     enum Section: CaseIterable {
         case popular
         case screening
+        case upcoming
         
         var title: String {
             switch self {
@@ -26,6 +27,8 @@ class HomeViewController: UIViewController {
                 return "지금 인기 있는 영화"
             case .screening:
                 return "현재 상영 중인 영화"
+            case .upcoming:
+                return "개봉 예정 중인 영화"
             }
         }
     }
@@ -73,9 +76,10 @@ class HomeViewController: UIViewController {
         }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.popular, .screening])
+        snapshot.appendSections([.popular, .screening, .upcoming])
         snapshot.appendItems([], toSection: .popular)
         snapshot.appendItems([], toSection: .screening)
+        snapshot.appendItems([], toSection: .upcoming)
         datasource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
@@ -101,6 +105,12 @@ class HomeViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { items in
                 self.applyItems(items, section: .screening)
+            }.store(in: &subscriptions)
+        
+        viewModel.$upcomingMovies
+            .receive(on: RunLoop.main)
+            .sink { items in
+                self.applyItems(items, section: .upcoming)
             }.store(in: &subscriptions)
         
         viewModel.movieTapped
@@ -157,8 +167,11 @@ extension HomeViewController: UICollectionViewDelegate {
         if allSections[indexPath.section] == Section.popular {
             let item = viewModel.popularMovies[indexPath.item]
             viewModel.movieTapped.send(item)
-        } else {
+        } else if allSections[indexPath.section] == Section.screening {
             let item = viewModel.screeningMovies[indexPath.item]
+            viewModel.movieTapped.send(item)
+        } else {
+            let item = viewModel.upcomingMovies[indexPath.item]
             viewModel.movieTapped.send(item)
         }
     }
