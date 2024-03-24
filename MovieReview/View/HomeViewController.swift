@@ -61,7 +61,11 @@ class HomeViewController: UIViewController {
         )
         
         self.datasource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderCollectionReusableView", for: indexPath) as? TitleHeaderCollectionReusableView else { return nil }
+            guard let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: "TitleHeaderCollectionReusableView",
+                for: indexPath
+            ) as? TitleHeaderCollectionReusableView else { return nil }
             
             let allSections = Section.allCases
             header.titleLabel.text = allSections[indexPath.section].title
@@ -149,7 +153,13 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = viewModel.popularMovies[indexPath.item]
-        viewModel.movieTapped.send(item)
+        let allSections = Section.allCases
+        if allSections[indexPath.section] == Section.popular {
+            let item = viewModel.popularMovies[indexPath.item]
+            viewModel.movieTapped.send(item)
+        } else {
+            let item = viewModel.screeningMovies[indexPath.item]
+            viewModel.movieTapped.send(item)
+        }
     }
 }
