@@ -88,6 +88,7 @@ class HomeViewController: UIViewController {
         
         collectionView.collectionViewLayout = layout()
         collectionView.alwaysBounceVertical = false
+        collectionView.showsVerticalScrollIndicator = false
         
         collectionView.delegate = self
     }

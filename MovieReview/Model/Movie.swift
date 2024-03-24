@@ -32,7 +32,8 @@ struct Movie: Hashable, Decodable {
     }
     
     var roundedVoteAverage: String {
-        return "평점 ⭐️ \(round(voteAverage * 10 / 10))"
+        let digit: Double = pow(10, 3)
+        return "평점 ⭐️ \(round(voteAverage * digit) / digit)"
     }
     
     var release: String {

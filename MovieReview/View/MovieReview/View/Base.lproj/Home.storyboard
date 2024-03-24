@@ -60,7 +60,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 인기 있는 영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXk-Mj-1w7">
-                                            <rect key="frame" x="10" y="13" width="152" height="24"/>
+                                            <rect key="frame" x="10" y="13" width="383" height="24"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -68,6 +68,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hXk-Mj-1w7" firstAttribute="leading" secondItem="Kix-Sr-XdY" secondAttribute="leading" constant="10" id="0gp-Rh-ZAJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="hXk-Mj-1w7" secondAttribute="trailing" id="CQN-vR-Qhk"/>
                                         <constraint firstItem="hXk-Mj-1w7" firstAttribute="centerY" secondItem="Kix-Sr-XdY" secondAttribute="centerY" id="OVs-fE-yQf"/>
                                     </constraints>
                                     <connections>
