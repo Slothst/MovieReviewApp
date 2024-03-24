@@ -127,17 +127,17 @@ class HomeViewController: UIViewController {
             layoutSize: groupSize,
             subitems: [item]
         )
-        group.interItemSpacing = .fixed(10)
+        group.interItemSpacing = .fixed(-20)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .paging
+        section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 0,
             bottom: 10,
             trailing: 0
         )
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = -20
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(50))
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
