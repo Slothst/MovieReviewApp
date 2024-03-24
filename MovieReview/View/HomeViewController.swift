@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
         case popular
         case screening
         case upcoming
+        case topRated
         
         var title: String {
             switch self {
@@ -29,6 +30,8 @@ class HomeViewController: UIViewController {
                 return "현재 상영 중인 영화"
             case .upcoming:
                 return "개봉 예정 중인 영화"
+            case .topRated:
+                return "평점 좋은 영화"
             }
         }
     }
@@ -76,10 +79,11 @@ class HomeViewController: UIViewController {
         }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.popular, .screening, .upcoming])
+        snapshot.appendSections([.popular, .screening, .upcoming, .topRated])
         snapshot.appendItems([], toSection: .popular)
         snapshot.appendItems([], toSection: .screening)
         snapshot.appendItems([], toSection: .upcoming)
+        snapshot.appendItems([], toSection: .topRated)
         datasource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
@@ -111,6 +115,12 @@ class HomeViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink { items in
                 self.applyItems(items, section: .upcoming)
+            }.store(in: &subscriptions)
+        
+        viewModel.$topRatedMovies
+            .receive(on: RunLoop.main)
+            .sink { items in
+                self.applyItems(items, section: .topRated)
             }.store(in: &subscriptions)
         
         viewModel.movieTapped
@@ -170,8 +180,11 @@ extension HomeViewController: UICollectionViewDelegate {
         } else if allSections[indexPath.section] == Section.screening {
             let item = viewModel.screeningMovies[indexPath.item]
             viewModel.movieTapped.send(item)
-        } else {
+        } else if allSections[indexPath.section] == Section.upcoming {
             let item = viewModel.upcomingMovies[indexPath.item]
+            viewModel.movieTapped.send(item)
+        } else {
+            let item = viewModel.topRatedMovies[indexPath.item]
             viewModel.movieTapped.send(item)
         }
     }

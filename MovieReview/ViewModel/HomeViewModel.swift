@@ -14,6 +14,7 @@ final class HomeViewModel {
     @Published private(set) var popularMovies = [Movie]()
     @Published private(set) var screeningMovies = [Movie]()
     @Published private(set) var upcomingMovies = [Movie]()
+    @Published private(set) var topRatedMovies = [Movie]()
     
     @Published var movieTapped = PassthroughSubject<Movie, Never>()
     
@@ -27,6 +28,7 @@ final class HomeViewModel {
         fetchPopularMovies()
         fetchScreeningMovies()
         fetchUpcomingMovies()
+        fetchTopRatedMovies()
     }
     
     private func fetchPopularMovies() {
@@ -64,7 +66,7 @@ final class HomeViewModel {
             .assign(to: \.screeningMovies, on: self)
             .store(in: &subscriptions)
     }
-    
+
     private func fetchUpcomingMovies() {
         let resource: Resource<MovieList> = Resource(
             base: "https://api.themoviedb.org/",
@@ -80,6 +82,24 @@ final class HomeViewModel {
             .replaceError(with: [])
             .receive(on: RunLoop.main)
             .assign(to: \.upcomingMovies, on: self)
+            .store(in: &subscriptions)
+    }
+
+    private func fetchTopRatedMovies() {
+        let resource: Resource<MovieList> = Resource(
+            base: "https://api.themoviedb.org/",
+            path: "3/movie/top_rated",
+            params: ["language": "en-US", "page": "1"],
+            header: [
+                "accept": "application/json",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+              ]
+        )
+        network.load(resource)
+            .map { $0.results }
+            .replaceError(with: [])
+            .receive(on: RunLoop.main)
+            .assign(to: \.topRatedMovies, on: self)
             .store(in: &subscriptions)
     }
 }
