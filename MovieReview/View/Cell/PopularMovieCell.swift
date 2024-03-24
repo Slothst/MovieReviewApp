@@ -12,13 +12,13 @@ class PopularMovieCell: UICollectionViewCell {
     
     @IBOutlet weak var moviePoster: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        moviePoster.image = nil
+    }
+    
     func configure(movie: Movie) {
-        moviePoster.kf.setImage(
-            with: URL(
-                string: "https://image.tmdb.org/t/p/w200/\(movie.posterPath)"
-            )
-        )
+        moviePoster.kf.setImage(with: movie.imageURL)
         moviePoster.contentMode = .scaleAspectFit
     }
-    //https://image.tmdb.org/t/p/w120/wkfG7DaExmcVsGLR4kLouMwxeT5.jpg
 }

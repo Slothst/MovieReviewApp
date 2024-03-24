@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Movie: Hashable, Identifiable, Decodable {
+struct Movie: Hashable, Decodable {
+    let uuid: UUID = UUID()
     let adult: Bool
     let id: Int
     let overview: String

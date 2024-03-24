@@ -8,13 +8,26 @@
 import UIKit
 import Combine
 
+
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     typealias Item = Movie
-    enum Section {
-        case main
+    
+    enum Section: Int, CaseIterable {
+        case popular
+        case screening
+        
+        var title: String {
+            switch self {
+            case .popular:
+                return "지금 인기 있는 영화"
+            case .screening:
+                return "현재 상영 중인 영화"
+            }
+        }
     }
     
     var datasource: UICollectionViewDiffableDataSource<Section, Item>!
@@ -38,20 +51,24 @@ class HomeViewController: UIViewController {
         datasource = UICollectionViewDiffableDataSource<Section, Item>(
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "MovieCell",
-                    for: indexPath
-                ) as? PopularMovieCell else {
-                    return nil
-                }
-                cell.configure(movie: item)
+                guard let section = Section(rawValue: indexPath.section) else { return nil }
+                let cell = self.configureCell(for: section, item: item, collectionView: collectionView, indexPath: indexPath)
                 return cell
             }
         )
         
+        datasource.supplementaryViewProvider = { (collectionView, kind, indexPath) in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderCollectionReusableView", for: indexPath) as? TitleHeaderCollectionReusableView else { return nil }
+            
+            let allSections = Section.allCases
+            header.titleLabel.text = allSections[indexPath.section].title
+            return header
+        }
+        
         var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([], toSection: .main)
+        snapshot.appendSections([.popular, .screening])
+        snapshot.appendItems([], toSection: .popular)
+        snapshot.appendItems([], toSection: .screening)
         datasource.apply(snapshot)
         
         collectionView.collectionViewLayout = layout()
@@ -60,17 +77,42 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
     }
     
-    private func applyItems(_ items: [Movie]) {
+    private func applyItems(_ items: [Movie], section: Section) {
         var snapshot = datasource.snapshot()
-        snapshot.appendItems(items, toSection: .main)
+        snapshot.appendItems(items, toSection: section)
         datasource.apply(snapshot)
     }
     
+    private func configureCell(for section: Section, item: Item, collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell? {
+        switch section {
+        case .popular:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "PopularMovieCell",
+                for: indexPath
+            ) as! PopularMovieCell
+            cell.configure(movie: item)
+            return cell
+        case .screening:
+            let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "ScreeningMovieCell",
+                for: indexPath
+            ) as! ScreeningMovieCell
+            cell.configure(movie: item)
+            return cell
+        }
+    }
+    
     private func bind() {
-        viewModel.$movies
+        viewModel.$popularMovies
             .receive(on: RunLoop.main)
             .sink { items in
-                self.applyItems(items)
+                self.applyItems(items, section: .popular)
+            }.store(in: &subscriptions)
+        
+        viewModel.$screeningMovies
+            .receive(on: RunLoop.main)
+            .sink { items in
+                self.applyItems(items, section: .screening)
             }.store(in: &subscriptions)
         
         viewModel.movieTapped
@@ -86,15 +128,16 @@ class HomeViewController: UIViewController {
     }
     
     private func layout() -> UICollectionViewCompositionalLayout {
+        
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.33),
-            heightDimension: .absolute(200)
+            heightDimension: .absolute(160)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.8),
-            heightDimension: .absolute(200)
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(160)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -103,11 +146,11 @@ class HomeViewController: UIViewController {
         group.interItemSpacing = .fixed(10)
         
         let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPagingCentered
+        section.orthogonalScrollingBehavior = .paging
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: -20,
-            leading: -10,
-            bottom: 0,
+            top: 10,
+            leading: 0,
+            bottom: 10,
             trailing: 0
         )
         section.interGroupSpacing = 10
@@ -117,7 +160,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = viewModel.movies[indexPath.item]
+        let item = viewModel.popularMovies[indexPath.item]
         viewModel.movieTapped.send(item)
     }
 }
