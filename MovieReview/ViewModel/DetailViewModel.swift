@@ -1,5 +1,5 @@
 //
-//  HomeDetailViewModel.swift
+//  DetailViewModel.swift
 //  MovieReview
 //
 //  Created by 최낙주 on 3/24/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class HomeDetailViewModel {
+final class DetailViewModel {
     
     let network: NetworkService
     

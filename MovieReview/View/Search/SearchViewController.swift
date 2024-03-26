@@ -79,6 +79,7 @@ class SearchViewController: UIViewController {
         )
         
         collectionView.collectionViewLayout = layout()
+        collectionView.delegate = self
     }
     
     private func bind() {
@@ -89,6 +90,18 @@ class SearchViewController: UIViewController {
                 snapshot.appendSections([.main])
                 snapshot.appendItems(movies, toSection: .main)
                 self.datasource.apply(snapshot)
+            }.store(in: &subscriptions)
+        
+        viewModel.movieTapped
+            .receive(on: RunLoop.main)
+            .sink { movie in
+                let sb = UIStoryboard(name: "Detail", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+                vc.viewModel = DetailViewModel(
+                    network: NetworkService(configuration: .default),
+                    movieDetail: movie
+                )
+                self.navigationController?.pushViewController(vc, animated: true)
             }.store(in: &subscriptions)
     }
 
@@ -108,7 +121,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let keyword = searchController.searchBar.text, !keyword.isEmpty else { return }
+        guard let keyword = searchController.searchBar.text else { return }
         viewModel.search(keyword: keyword)
     }
 }
@@ -116,7 +129,6 @@ extension SearchViewController: UISearchResultsUpdating {
 extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let keyword = searchBar.text, !keyword.isEmpty else { return }
-        print(keyword)
         viewModel.search(keyword: keyword)
     }
 }
@@ -126,5 +138,12 @@ extension SearchViewController: UISearchControllerDelegate {
         DispatchQueue.main.async {
             self.searchController.searchBar.becomeFirstResponder()
         }
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = viewModel.searchResults[indexPath.item]
+        viewModel.movieTapped.send(item)
     }
 }

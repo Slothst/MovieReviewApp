@@ -13,6 +13,7 @@ final class SearchViewModel {
     let network: NetworkService
     
     @Published var searchResults = [Movie]()
+    @Published var movieTapped = PassthroughSubject<Movie, Never>()
     
     init(network: NetworkService) {
         self.network = network

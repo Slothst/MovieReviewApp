@@ -1,5 +1,5 @@
 //
-//  HomeDetailViewController.swift
+//  DetailViewController.swift
 //  MovieReview
 //
 //  Created by 최낙주 on 3/23/24.
@@ -9,7 +9,7 @@ import UIKit
 import Combine
 import Kingfisher
 
-class HomeDetailViewController: UIViewController {
+class DetailViewController: UIViewController {
     
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,7 +17,7 @@ class HomeDetailViewController: UIViewController {
     @IBOutlet weak var releaseLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
-    var viewModel: HomeDetailViewModel!
+    var viewModel: DetailViewModel!
     var subscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
