@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--검색-->
+        <scene sceneID="Igg-j6-aon">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="mof-jy-BX5" customClass="SearchViewController" customModule="MovieReview" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DUM-R5-rFR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wkh-vl-ecE">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3gh-tx-iSs">
+                                    <size key="itemSize" width="122" height="165"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="0fQ-Pf-T18" customClass="SearchCell" customModule="MovieReview" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VnK-J4-09q">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OUE-OA-AKX">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="OUE-OA-AKX" firstAttribute="top" secondItem="VnK-J4-09q" secondAttribute="top" id="3ER-GE-I9c"/>
+                                                <constraint firstAttribute="trailing" secondItem="OUE-OA-AKX" secondAttribute="trailing" id="8S4-Ib-lFH"/>
+                                                <constraint firstItem="OUE-OA-AKX" firstAttribute="leading" secondItem="VnK-J4-09q" secondAttribute="leading" id="Riz-AE-0AX"/>
+                                                <constraint firstAttribute="bottom" secondItem="OUE-OA-AKX" secondAttribute="bottom" id="RrH-Xf-069"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="120" height="160"/>
+                                        <connections>
+                                            <outlet property="moviePoster" destination="OUE-OA-AKX" id="dB9-Gl-Wlv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sxx-a2-qiD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wkh-vl-ecE" firstAttribute="top" secondItem="Sxx-a2-qiD" secondAttribute="top" id="LGV-EY-EUm"/>
+                            <constraint firstItem="Sxx-a2-qiD" firstAttribute="bottom" secondItem="wkh-vl-ecE" secondAttribute="bottom" id="hiY-Vg-g74"/>
+                            <constraint firstItem="wkh-vl-ecE" firstAttribute="leading" secondItem="Sxx-a2-qiD" secondAttribute="leading" id="mBP-cD-WN1"/>
+                            <constraint firstItem="Sxx-a2-qiD" firstAttribute="trailing" secondItem="wkh-vl-ecE" secondAttribute="trailing" id="qMV-op-SNM"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="검색" image="magnifyingglass" catalog="system" id="dcL-kC-6a1"/>
+                    <navigationItem key="navigationItem" id="fB8-hW-f0M"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wkh-vl-ecE" id="kGe-u9-J0g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8OT-Ap-NWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154.96183206106869" y="810.56338028169023"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

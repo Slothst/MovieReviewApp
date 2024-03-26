@@ -1,0 +1,130 @@
+//
+//  SearchViewController.swift
+//  MovieReview
+//
+//  Created by 최낙주 on 3/23/24.
+//
+
+import UIKit
+import Combine
+
+class SearchViewController: UIViewController {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var viewModel: SearchViewModel = SearchViewModel(network: NetworkService(configuration: .default))
+    
+    typealias Item = Movie
+    
+    enum Section {
+        case main
+    }
+    
+    var datasource: UICollectionViewDiffableDataSource<Section, Item>!
+    
+    var subscriptions = Set<AnyCancellable>()
+    
+    override func viewDidLoad() {
+//        navigationController?.navigationBar.isHidden = true
+        super.viewDidLoad()
+        hideKeyBoardWhenTappedScreen()
+        embedSearchControl()
+        configureCollectionView()
+        bind()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchController.isActive = true
+    }
+    
+    func hideKeyBoardWhenTappedScreen() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapHandler))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func tapHandler() {
+        searchController.searchBar.endEditing(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.searchController.searchBar.becomeFirstResponder()
+    }
+    
+    private func embedSearchControl() {
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.placeholder = "검색"
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.delegate = self
+        searchController.automaticallyShowsCancelButton = false
+        self.searchController.searchBar.becomeFirstResponder()
+        self.navigationItem.searchController = searchController
+    }
+    
+    private func configureCollectionView() {
+        datasource = UICollectionViewDiffableDataSource<Section, Item>(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, item in
+                guard let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: "SearchCell",
+                    for: indexPath
+                ) as? SearchCell else { return nil }
+                cell.configure(movie: item)
+                return cell
+            }
+        )
+        
+        collectionView.collectionViewLayout = layout()
+    }
+    
+    private func bind() {
+        viewModel.$searchResults
+            .receive(on: RunLoop.main)
+            .sink { movies in
+                var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+                snapshot.appendSections([.main])
+                snapshot.appendItems(movies, toSection: .main)
+                self.datasource.apply(snapshot)
+            }.store(in: &subscriptions)
+    }
+
+    private func layout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.33), heightDimension: .absolute(160))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(160))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item, item, item])
+        group.interItemSpacing = .fixed(-20)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        return UICollectionViewCompositionalLayout(section: section)
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let keyword = searchController.searchBar.text, !keyword.isEmpty else { return }
+        viewModel.search(keyword: keyword)
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let keyword = searchBar.text, !keyword.isEmpty else { return }
+        print(keyword)
+        viewModel.search(keyword: keyword)
+    }
+}
+
+extension SearchViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+}
