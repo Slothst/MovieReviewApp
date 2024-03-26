@@ -127,7 +127,7 @@ class HomeViewController: UIViewController {
         viewModel.movieTapped
             .sink { movie in
                 let sb = UIStoryboard(name: "Detail", bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: "HomeDetailViewController") as! DetailViewController
+                let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
                 vc.viewModel = DetailViewModel(
                     network: NetworkService(configuration: .default),
                     movieDetail: movie
