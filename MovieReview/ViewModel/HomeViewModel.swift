@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 final class HomeViewModel {
+    
     let network: NetworkService
     
     @Published private(set) var popularMovies = [Movie]()
@@ -33,12 +34,12 @@ final class HomeViewModel {
     
     private func fetchPopularMovies() {
         let resource: Resource<MovieList> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/movie/popular",
-            params: ["language": "en-US", "page": "1"],
+            params: ["language": "ko-KR", "page": "1"],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         network.load(resource)
@@ -51,12 +52,12 @@ final class HomeViewModel {
     
     private func fetchScreeningMovies() {
         let resource: Resource<MovieList> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/movie/now_playing",
-            params: ["language": "en-US", "page": "1"],
+            params: ["language": "ko-KR", "page": "1"],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         network.load(resource)
@@ -69,12 +70,12 @@ final class HomeViewModel {
 
     private func fetchUpcomingMovies() {
         let resource: Resource<MovieList> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/movie/upcoming",
-            params: ["language": "en-US", "page": "1"],
+            params: ["language": "ko-KR", "page": "1"],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         network.load(resource)
@@ -87,12 +88,12 @@ final class HomeViewModel {
 
     private func fetchTopRatedMovies() {
         let resource: Resource<MovieList> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/movie/top_rated",
-            params: ["language": "en-US", "page": "1"],
+            params: ["language": "ko-KR", "page": "1"],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         network.load(resource)

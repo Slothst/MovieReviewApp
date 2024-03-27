@@ -23,17 +23,17 @@ final class SearchViewModel {
     
     func search(keyword: String) {
         let resource: Resource<MovieList> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/search/movie",
             params: [
                 "query": keyword,
                 "include_adult": "false",
-                "language": "en-US",
+                "language": "ko-KR",
                 "page": "1"
             ],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         

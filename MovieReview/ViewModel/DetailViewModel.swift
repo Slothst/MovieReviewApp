@@ -23,12 +23,12 @@ final class DetailViewModel {
     
     func fetch() {
         let resource: Resource<Movie> = Resource(
-            base: "https://api.themoviedb.org/",
+            base: APIInfo.baseURL,
             path: "3/movie/\(movieDetail?.id ?? 0)",
-            params: ["language": "en-US"],
+            params: ["language": "ko-KR"],
             header: [
                 "accept": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjEzZTY2MTM1YjExOGY2MGNkODQwNzNiNjlkNWU4ZSIsInN1YiI6IjY1ZmU1NTc1NzcwNzAwMDE2MzA5NTE2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.B7dz-DrrgTeDwDmXjVOlQM9xbnb6c2EuKEglFGq7OXY"
+                "Authorization": APIInfo.accessToken
               ]
         )
         network.load(resource)
