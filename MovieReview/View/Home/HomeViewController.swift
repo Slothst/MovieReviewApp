@@ -10,7 +10,7 @@ import Combine
 
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: ExtensionVC {
 
     @IBOutlet weak var collectionView: UICollectionView!
     

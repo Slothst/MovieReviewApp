@@ -26,12 +26,19 @@ class SearchViewController: UIViewController {
     
     var subscriptions = Set<AnyCancellable>()
     
+    private let loadingView: LoadingView = {
+        let view = LoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
-//        navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
+        self.loadingView.isLoading = true
         hideKeyBoardWhenTappedScreen()
         embedSearchControl()
         configureCollectionView()
+        embedLoadingView()
         bind()
     }
     
@@ -52,6 +59,22 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.searchController.searchBar.becomeFirstResponder()
+    }
+    
+    private func embedLoadingView() {
+        self.view.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+          self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+          self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+          self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+          self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+        ])
+        NSLayoutConstraint.activate([
+          self.loadingView.leftAnchor.constraint(equalTo: self.collectionView.leftAnchor),
+          self.loadingView.rightAnchor.constraint(equalTo: self.collectionView.rightAnchor),
+          self.loadingView.bottomAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
+          self.loadingView.topAnchor.constraint(equalTo: self.collectionView.topAnchor),
+        ])
     }
     
     private func embedSearchControl() {
@@ -121,8 +144,12 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+            self?.loadingView.isLoading = false
+        }
         guard let keyword = searchController.searchBar.text else { return }
         viewModel.search(keyword: keyword)
+        self.loadingView.isLoading = true
     }
 }
 

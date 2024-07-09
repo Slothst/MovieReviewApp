@@ -14,7 +14,7 @@ class MainNavigationViewController: UINavigationController {
         let backImage = UIImage(systemName: "arrow.backward")
         navigationBar.backIndicatorImage = backImage
         navigationBar.backIndicatorTransitionMaskImage = backImage
-        navigationBar.tintColor = .white
-        
+        navigationBar.tintColor = .label
+        navigationBar.isHidden = true
     }
 }
