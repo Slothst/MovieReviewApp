@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -32,6 +32,12 @@ class SearchViewController: UIViewController {
         return view
     }()
     
+    private let guideView: GuideView = {
+        let view = GuideView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadingView.isLoading = true
@@ -39,6 +45,7 @@ class SearchViewController: UIViewController {
         embedSearchControl()
         configureCollectionView()
         embedLoadingView()
+        embedGuideView()
         bind()
     }
     
@@ -74,6 +81,22 @@ class SearchViewController: UIViewController {
           self.loadingView.rightAnchor.constraint(equalTo: self.collectionView.rightAnchor),
           self.loadingView.bottomAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
           self.loadingView.topAnchor.constraint(equalTo: self.collectionView.topAnchor),
+        ])
+    }
+    
+    private func embedGuideView() {
+        self.view.addSubview(guideView)
+        NSLayoutConstraint.activate([
+          self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+          self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+          self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+          self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+        ])
+        NSLayoutConstraint.activate([
+          self.guideView.leftAnchor.constraint(equalTo: self.collectionView.leftAnchor),
+          self.guideView.rightAnchor.constraint(equalTo: self.collectionView.rightAnchor),
+          self.guideView.bottomAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
+          self.guideView.topAnchor.constraint(equalTo: self.collectionView.topAnchor),
         ])
     }
     
@@ -144,10 +167,15 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        guard let keyword = searchController.searchBar.text else { return }
+        if keyword.isEmpty {
+            self.guideView.isHidden = false
+        } else {
+            self.guideView.isHidden = true
+        }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
             self?.loadingView.isLoading = false
         }
-        guard let keyword = searchController.searchBar.text else { return }
         viewModel.search(keyword: keyword)
         self.loadingView.isLoading = true
     }
