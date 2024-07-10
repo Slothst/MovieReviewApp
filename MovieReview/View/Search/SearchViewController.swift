@@ -26,6 +26,8 @@ class SearchViewController: UIViewController {
     
     var subscriptions = Set<AnyCancellable>()
     
+    private var isLoadingMoreCharacters = false
+    
     private let loadingView: LoadingView = {
         let view = LoadingView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -86,12 +88,6 @@ class SearchViewController: UIViewController {
     
     private func embedGuideView() {
         self.view.addSubview(guideView)
-        NSLayoutConstraint.activate([
-          self.collectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor),
-          self.collectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor),
-          self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-          self.collectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-        ])
         NSLayoutConstraint.activate([
           self.guideView.leftAnchor.constraint(equalTo: self.collectionView.leftAnchor),
           self.guideView.rightAnchor.constraint(equalTo: self.collectionView.rightAnchor),
