@@ -19,5 +19,8 @@ class SearchCell: UICollectionViewCell {
     
     func configure(movie: Movie) {
         moviePoster.kf.setImage(with: movie.imageURL)
+        moviePoster.contentMode = .scaleAspectFit
+        moviePoster.layer.cornerRadius = 5
+        moviePoster.clipsToBounds = true
     }
 }

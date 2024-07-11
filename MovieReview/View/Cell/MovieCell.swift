@@ -20,5 +20,7 @@ class MovieCell: UICollectionViewCell {
     func configure(movie: Movie) {
         moviePoster.kf.setImage(with: movie.imageURL)
         moviePoster.contentMode = .scaleAspectFit
+        moviePoster.clipsToBounds = true
+        moviePoster.layer.cornerRadius = 5
     }
 }

@@ -28,7 +28,7 @@ struct Movie: Hashable, Decodable {
     }
     
     var imageURL: URL? {
-        return URL(string: "https://image.tmdb.org/t/p/w200/\(posterPath)")
+        return URL(string: "https://image.tmdb.org/t/p/w300/\(posterPath)")
     }
     
     var roundedVoteAverage: String {

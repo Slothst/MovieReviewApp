@@ -15,6 +15,5 @@ class MainNavigationViewController: UINavigationController {
         navigationBar.backIndicatorImage = backImage
         navigationBar.backIndicatorTransitionMaskImage = backImage
         navigationBar.tintColor = .label
-        navigationBar.isHidden = true
     }
 }
