@@ -28,11 +28,11 @@ struct Movie: Hashable, Decodable {
     }
     
     var imageURL: URL? {
-        return URL(string: "https://image.tmdb.org/t/p/w300/\(posterPath)")
+        return URL(string: "https://image.tmdb.org/t/p/w200/\(posterPath)")
     }
     
     var roundedVoteAverage: String {
-        let digit: Double = pow(10, 3)
+        let digit: Double = pow(10, 2)
         return "평점 ⭐️ \(round(voteAverage * digit) / digit)"
     }
     

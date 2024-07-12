@@ -120,6 +120,11 @@ class SearchViewController: UIViewController {
             }
         )
         
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Item>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems([], toSection: .main)
+        datasource.apply(snapshot)
+        
         collectionView.collectionViewLayout = layout()
         collectionView.delegate = self
     }
