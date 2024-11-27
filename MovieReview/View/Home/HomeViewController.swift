@@ -8,8 +8,6 @@
 import UIKit
 import Combine
 
-
-
 class HomeViewController: ExtensionVC {
 
     @IBOutlet weak var collectionView: UICollectionView!

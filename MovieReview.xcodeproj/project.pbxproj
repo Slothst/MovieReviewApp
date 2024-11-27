@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		252C215D2CDF4C0600387D08 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C215C2CDF4C0600387D08 /* AuthViewModel.swift */; };
+		252C215F2CDF529900387D08 /* RequestTokenReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C215E2CDF529900387D08 /* RequestTokenReponse.swift */; };
+		252C21652CDF56C500387D08 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C21622CDF56C500387D08 /* WelcomeViewController.swift */; };
+		252C216B2CDF581000387D08 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252C216A2CDF581000387D08 /* AuthViewController.swift */; };
+		252C216D2CDF5B9300387D08 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 252C216C2CDF5B9300387D08 /* Auth.storyboard */; };
 		254D58542BAEBC25004738F6 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D58532BAEBC25004738F6 /* Resource.swift */; };
 		254D58562BAEBCE1004738F6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D58552BAEBCE1004738F6 /* NetworkService.swift */; };
 		254D58592BAEBE4F004738F6 /* Publisher+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254D58582BAEBE4F004738F6 /* Publisher+Utils.swift */; };
@@ -27,6 +32,10 @@
 		2580E3932BB464AF00E7050A /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2580E3922BB464AF00E7050A /* APIInfo.swift */; };
 		2580E3962BB46BA400E7050A /* ExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2580E3952BB46BA400E7050A /* ExtensionVC.swift */; };
 		2580E3982BB4707F00E7050A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2580E3972BB4707F00E7050A /* LoadingView.swift */; };
+		25AF00BA2CECBF4100EA92B7 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25AF00B92CECBF4100EA92B7 /* Welcome.storyboard */; };
+		25AF00BC2CECBFB700EA92B7 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF00BB2CECBFB700EA92B7 /* WelcomeViewModel.swift */; };
+		25AF00BE2CF0A0A700EA92B7 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF00BD2CF0A0A700EA92B7 /* Session.swift */; };
+		25BDA3CE2CF6F6C8006AE180 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BDA3CD2CF6F6C8006AE180 /* ProfileViewModel.swift */; };
 		25C1E62B2C3D0EB500632AB2 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E62A2C3D0EB500632AB2 /* GuideView.swift */; };
 		25C1E6312C41291300632AB2 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C1E6302C41291300632AB2 /* RecommendCell.swift */; };
 		25C978E32BB2929800F8FF06 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C978E22BB2929800F8FF06 /* SearchCell.swift */; };
@@ -61,6 +70,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		252C215C2CDF4C0600387D08 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		252C215E2CDF529900387D08 /* RequestTokenReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTokenReponse.swift; sourceTree = "<group>"; };
+		252C21622CDF56C500387D08 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		252C216A2CDF581000387D08 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		252C216C2CDF5B9300387D08 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		254D58532BAEBC25004738F6 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		254D58552BAEBCE1004738F6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		254D58582BAEBE4F004738F6 /* Publisher+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Utils.swift"; sourceTree = "<group>"; };
@@ -80,6 +94,10 @@
 		2580E3922BB464AF00E7050A /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
 		2580E3952BB46BA400E7050A /* ExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionVC.swift; sourceTree = "<group>"; };
 		2580E3972BB4707F00E7050A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		25AF00B92CECBF4100EA92B7 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		25AF00BB2CECBFB700EA92B7 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		25AF00BD2CF0A0A700EA92B7 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		25BDA3CD2CF6F6C8006AE180 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		25C1E62A2C3D0EB500632AB2 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		25C1E6302C41291300632AB2 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		25C978E22BB2929800F8FF06 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
@@ -126,6 +144,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		252C21612CDF568C00387D08 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				25AF00B92CECBF4100EA92B7 /* Welcome.storyboard */,
+				252C21622CDF56C500387D08 /* WelcomeViewController.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		252C21692CDF580900387D08 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				252C216C2CDF5B9300387D08 /* Auth.storyboard */,
+				252C216A2CDF581000387D08 /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		254D58522BAEBC15004738F6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +183,8 @@
 		254D585E2BAEC207004738F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				252C21692CDF580900387D08 /* Auth */,
+				252C21612CDF568C00387D08 /* Welcome */,
 				254D58852BB28BFF004738F6 /* Main */,
 				254D58862BB28C13004738F6 /* Home */,
 				254D58872BB28C1E004738F6 /* Detail */,
@@ -162,9 +200,12 @@
 		254D58632BAEC635004738F6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				252C215C2CDF4C0600387D08 /* AuthViewModel.swift */,
 				254D58642BAEC63E004738F6 /* HomeViewModel.swift */,
 				254D587D2BAFC949004738F6 /* DetailViewModel.swift */,
 				25CBBAF82BB2A66D0059458B /* SearchViewModel.swift */,
+				25AF00BB2CECBFB700EA92B7 /* WelcomeViewModel.swift */,
+				25BDA3CD2CF6F6C8006AE180 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -174,6 +215,8 @@
 			children = (
 				254D58672BAEC679004738F6 /* Movie.swift */,
 				254D58692BAEC727004738F6 /* MovieList.swift */,
+				252C215E2CDF529900387D08 /* RequestTokenReponse.swift */,
+				25AF00BD2CF0A0A700EA92B7 /* Session.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -404,7 +447,9 @@
 				25CD755C2BAE8F9400012F56 /* Base in Resources */,
 				254D58822BAFF170004738F6 /* Detail.storyboard in Resources */,
 				254D588D2BB28CC4004738F6 /* Search.storyboard in Resources */,
+				25AF00BA2CECBF4100EA92B7 /* Welcome.storyboard in Resources */,
 				254D58702BAF07BD004738F6 /* Home.storyboard in Resources */,
+				252C216D2CDF5B9300387D08 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,16 +474,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				252C21652CDF56C500387D08 /* WelcomeViewController.swift in Sources */,
 				254D58722BAF0A47004738F6 /* DetailViewController.swift in Sources */,
 				254D58602BAEC227004738F6 /* SearchViewController.swift in Sources */,
 				25CD75592BAE8F9400012F56 /* HomeViewController.swift in Sources */,
 				2580E3982BB4707F00E7050A /* LoadingView.swift in Sources */,
 				25CD75552BAE8F9400012F56 /* AppDelegate.swift in Sources */,
+				25AF00BC2CECBFB700EA92B7 /* WelcomeViewModel.swift in Sources */,
 				25CBBAF92BB2A66D0059458B /* SearchViewModel.swift in Sources */,
 				254D58842BB023DA004738F6 /* TitleHeaderCollectionReusableView.swift in Sources */,
 				254D585D2BAEBF7F004738F6 /* MainTabBarController.swift in Sources */,
 				2580E3962BB46BA400E7050A /* ExtensionVC.swift in Sources */,
 				25CD75852BAEBB4B00012F56 /* MovieCell.swift in Sources */,
+				25BDA3CE2CF6F6C8006AE180 /* ProfileViewModel.swift in Sources */,
 				254D58542BAEBC25004738F6 /* Resource.swift in Sources */,
 				254D586A2BAEC727004738F6 /* MovieList.swift in Sources */,
 				254D58622BAEC242004738F6 /* ProfileViewController.swift in Sources */,
@@ -447,12 +495,16 @@
 				254D58592BAEBE4F004738F6 /* Publisher+Utils.swift in Sources */,
 				25C1E6312C41291300632AB2 /* RecommendCell.swift in Sources */,
 				2580E3932BB464AF00E7050A /* APIInfo.swift in Sources */,
+				25AF00BE2CF0A0A700EA92B7 /* Session.swift in Sources */,
 				25C978E32BB2929800F8FF06 /* SearchCell.swift in Sources */,
 				254D585B2BAEBF5B004738F6 /* MainNavigationViewController.swift in Sources */,
 				25C1E62B2C3D0EB500632AB2 /* GuideView.swift in Sources */,
 				254D587E2BAFC949004738F6 /* DetailViewModel.swift in Sources */,
 				254D58562BAEBCE1004738F6 /* NetworkService.swift in Sources */,
+				252C216B2CDF581000387D08 /* AuthViewController.swift in Sources */,
 				25CD75572BAE8F9400012F56 /* SceneDelegate.swift in Sources */,
+				252C215F2CDF529900387D08 /* RequestTokenReponse.swift in Sources */,
+				252C215D2CDF4C0600387D08 /* AuthViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,8 +708,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -689,8 +741,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
