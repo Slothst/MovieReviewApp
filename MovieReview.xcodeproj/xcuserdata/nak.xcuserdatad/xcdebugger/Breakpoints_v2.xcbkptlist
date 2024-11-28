@@ -20,28 +20,28 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0673B181-797F-4C51-85FE-67F7637DCBBC - 22fd3716f7bee1cf"
+                  uuid = "0673B181-797F-4C51-85FE-67F7637DCBBC - 621a75e321c6f7d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Combine.Subscribers.Completion&lt;Swift.Error&gt;) -&gt; () in MovieReview.AuthViewModel.fetchRequestToken() -&gt; ()"
                   moduleName = "MovieReview.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nak/Desktop/study/swift/MovieReview/MovieReview/ViewModel/AuthViewModel.swift"
+                  urlString = "file:///Users/nak/Documents/MovieReviewApp/MovieReview/ViewModel/AuthViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
                   endingLineNumber = "51">
                </Location>
                <Location
-                  uuid = "0673B181-797F-4C51-85FE-67F7637DCBBC - 22fd3716f7bee1cf"
+                  uuid = "0673B181-797F-4C51-85FE-67F7637DCBBC - 621a75e321c6f7d"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Combine.Subscribers.Completion&lt;Swift.Error&gt;) -&gt; () in MovieReview.AuthViewModel.fetchRequestToken() -&gt; ()"
                   moduleName = "MovieReview.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nak/Desktop/study/swift/MovieReview/MovieReview/ViewModel/AuthViewModel.swift"
+                  urlString = "file:///Users/nak/Documents/MovieReviewApp/MovieReview/ViewModel/AuthViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"

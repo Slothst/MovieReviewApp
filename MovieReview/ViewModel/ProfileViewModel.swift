@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 final class ProfileViewModel {
     
@@ -14,4 +15,6 @@ final class ProfileViewModel {
     init(network: NetworkService) {
         self.network = network
     }
+    
+    
 }
