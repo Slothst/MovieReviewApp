@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,29 +41,12 @@
                     <connections>
                         <segue destination="nE9-2n-5QE" kind="relationship" relationship="viewControllers" id="mnq-Qo-H8k"/>
                         <segue destination="rOZ-cU-L3u" kind="relationship" relationship="viewControllers" id="4Ho-3Q-E3u"/>
-                        <segue destination="lKk-P0-25C" kind="relationship" relationship="viewControllers" id="58Z-J4-nBG"/>
+                        <segue destination="lFn-0L-LyY" kind="relationship" relationship="viewControllers" id="58Z-J4-nBG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxR-8X-fgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-340" y="5"/>
-        </scene>
-        <!--프로필-->
-        <scene sceneID="hvc-bS-Jqa">
-            <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="lKk-P0-25C" customClass="ProfileViewController" customModule="MovieReview" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bq1-Pa-3aN">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZGv-ye-ilk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="프로필" image="person" catalog="system" id="8No-la-MKi"/>
-                    <navigationItem key="navigationItem" id="SgI-JT-sp8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="e58-E3-5cC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1343" y="811"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="fI7-Ud-JZ0">
@@ -106,6 +88,35 @@
             </objects>
             <point key="canvasLocation" x="-166" y="811"/>
         </scene>
+        <!--프로필-->
+        <scene sceneID="kOz-30-0Wy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lFn-0L-LyY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="프로필" image="person" catalog="system" id="8No-la-MKi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IWV-v3-iQb">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TpE-CP-Ojs" kind="relationship" relationship="rootViewController" id="Ha1-Pf-cds"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3LA-32-fVT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1342.7480916030534" y="810.56338028169023"/>
+        </scene>
+        <!--ProfileViewController-->
+        <scene sceneID="omf-b0-ynk">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileViewController" storyboardName="Profile" referencedIdentifier="ProfileViewController" id="TpE-CP-Ojs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Upo-Uc-mwU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJa-C8-g03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2269.4656488549617" y="810.56338028169023"/>
+        </scene>
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
@@ -113,9 +124,6 @@
         <image name="person" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

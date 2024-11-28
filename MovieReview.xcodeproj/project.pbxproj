@@ -50,6 +50,8 @@
 		25CD75762BAE8F9600012F56 /* MovieReviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD75752BAE8F9600012F56 /* MovieReviewUITests.swift */; };
 		25CD75782BAE8F9600012F56 /* MovieReviewUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD75772BAE8F9600012F56 /* MovieReviewUITestsLaunchTests.swift */; };
 		25CD75852BAEBB4B00012F56 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD75842BAEBB4B00012F56 /* MovieCell.swift */; };
+		25FEA2382CF83D6600F7DD7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FEA2362CF83D6600F7DD7C /* Profile.storyboard */; };
+		25FEA23A2CF83E5300F7DD7C /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEA2392CF83E5300F7DD7C /* UserDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		25CD75752BAE8F9600012F56 /* MovieReviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewUITests.swift; sourceTree = "<group>"; };
 		25CD75772BAE8F9600012F56 /* MovieReviewUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieReviewUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		25CD75842BAEBB4B00012F56 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		25FEA2372CF83D6600F7DD7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Main/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		25FEA2392CF83E5300F7DD7C /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,13 +187,13 @@
 		254D585E2BAEC207004738F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25FEA2352CF83D4900F7DD7C /* Profile */,
 				252C21692CDF580900387D08 /* Auth */,
 				252C21612CDF568C00387D08 /* Welcome */,
 				254D58852BB28BFF004738F6 /* Main */,
 				254D58862BB28C13004738F6 /* Home */,
 				254D58872BB28C1E004738F6 /* Detail */,
 				254D58882BB28C2A004738F6 /* Search */,
-				254D58612BAEC242004738F6 /* ProfileViewController.swift */,
 				254D587C2BAF2640004738F6 /* Cell */,
 				2580E3972BB4707F00E7050A /* LoadingView.swift */,
 				25C1E62A2C3D0EB500632AB2 /* GuideView.swift */,
@@ -217,6 +221,7 @@
 				254D58692BAEC727004738F6 /* MovieList.swift */,
 				252C215E2CDF529900387D08 /* RequestTokenReponse.swift */,
 				25AF00BD2CF0A0A700EA92B7 /* Session.swift */,
+				25FEA2392CF83E5300F7DD7C /* UserDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,6 +335,15 @@
 				25CD75772BAE8F9600012F56 /* MovieReviewUITestsLaunchTests.swift */,
 			);
 			path = MovieReviewUITests;
+			sourceTree = "<group>";
+		};
+		25FEA2352CF83D4900F7DD7C /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				25FEA2362CF83D6600F7DD7C /* Profile.storyboard */,
+				254D58612BAEC242004738F6 /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +462,7 @@
 				254D58822BAFF170004738F6 /* Detail.storyboard in Resources */,
 				254D588D2BB28CC4004738F6 /* Search.storyboard in Resources */,
 				25AF00BA2CECBF4100EA92B7 /* Welcome.storyboard in Resources */,
+				25FEA2382CF83D6600F7DD7C /* Profile.storyboard in Resources */,
 				254D58702BAF07BD004738F6 /* Home.storyboard in Resources */,
 				252C216D2CDF5B9300387D08 /* Auth.storyboard in Resources */,
 			);
@@ -491,6 +506,7 @@
 				254D586A2BAEC727004738F6 /* MovieList.swift in Sources */,
 				254D58622BAEC242004738F6 /* ProfileViewController.swift in Sources */,
 				254D58652BAEC63E004738F6 /* HomeViewModel.swift in Sources */,
+				25FEA23A2CF83E5300F7DD7C /* UserDetails.swift in Sources */,
 				254D58682BAEC679004738F6 /* Movie.swift in Sources */,
 				254D58592BAEBE4F004738F6 /* Publisher+Utils.swift in Sources */,
 				25C1E6312C41291300632AB2 /* RecommendCell.swift in Sources */,
@@ -571,6 +587,14 @@
 				25CD75602BAE8F9600012F56 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		25FEA2362CF83D6600F7DD7C /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				25FEA2372CF83D6600F7DD7C /* Base */,
+			);
+			name = Profile.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
