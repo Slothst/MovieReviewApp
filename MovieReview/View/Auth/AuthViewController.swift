@@ -59,7 +59,6 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
         guard let url = webView.url else {
             return
         }
-        print(String(describing: url))
         // Exchange the code for access token
         guard (URLComponents(string: url.absoluteString)?.string?.hasSuffix("allow"))! else {
             return

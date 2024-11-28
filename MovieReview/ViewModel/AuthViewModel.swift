@@ -84,7 +84,6 @@ final class AuthViewModel {
             } receiveValue: { session in
                 self.session = session
                 self.cacheSession(session: session)
-                print(session.session_id)
                 completion(true)
             }.store(in: &subscriptions)
     }
