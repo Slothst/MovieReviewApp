@@ -17,13 +17,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var releaseLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
-    @IBOutlet weak var recommendationsTableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     enum Section: CaseIterable {
         case recommendations
     }
     
-    var datasource: UITableViewDiffableDataSource<Section, Movie>!
+    var datasource: UICollectionViewDiffableDataSource<Section, Movie>!
     
     var viewModel: DetailViewModel!
     var subscriptions = Set<AnyCancellable>()
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        configureTableView()
+        configureCollectionView()
         bind()
         viewModel.fetch()
     }
@@ -42,25 +42,32 @@ class DetailViewController: UIViewController {
         navigationItem.title = viewModel.movieDetail?.title
     }
     
-    private func configureTableView() {
-        datasource = UITableViewDiffableDataSource<Section, Movie>(
-            tableView: recommendationsTableView,
-            cellProvider: { tableView, indexPath, item in
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: RecommendCell.identifier,
-                    for: indexPath
-                ) as? RecommendCell else { return UITableViewCell() }
+    private func configureCollectionView() {
+        datasource = UICollectionViewDiffableDataSource<Section, Movie>(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, item in
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCell else { return nil
+                }
                 cell.configure(movie: item)
                 return cell
             }
         )
+        
+        self.datasource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "TitleHeaderCollectionReusableView", for: indexPath) as? TitleHeaderCollectionReusableView else { return nil }
+            header.titleLabel.text = "추천 영화"
+            return header
+        }
         
         var snapshot = NSDiffableDataSourceSnapshot<Section, Movie>()
         snapshot.appendSections([.recommendations])
         snapshot.appendItems([], toSection: .recommendations)
         datasource.apply(snapshot)
         
-        self.recommendationsTableView.delegate = self
+        collectionView.collectionViewLayout = layout()
+        collectionView.alwaysBounceVertical = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
     }
     
     private func bind() {
@@ -83,10 +90,51 @@ class DetailViewController: UIViewController {
                 self.datasource.apply(snapshot)
             }.store(in: &subscriptions)
     }
+    
+    private func layout() -> UICollectionViewCompositionalLayout {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.33),
+            heightDimension: .absolute(160)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(160)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+        group.interItemSpacing = .fixed(-20)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 10,
+            trailing: 0
+        )
+        section.interGroupSpacing = -20
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .absolute(50)
+        )
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        section.boundarySupplementaryItems = [header]
+        
+        return UICollectionViewCompositionalLayout(section: section)
+    }
 }
 
-extension DetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension DetailViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Detail", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.viewModel = DetailViewModel(

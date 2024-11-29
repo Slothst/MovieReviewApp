@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,11 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWa-Ye-OWx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWa-Ye-OWx">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-YA-GN5">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKt-2l-hTI">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -43,25 +44,25 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BL5-zl-YE7">
-                                                <rect key="frame" x="0.0" y="280" width="393" height="150"/>
+                                                <rect key="frame" x="0.0" y="280" width="393" height="116"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-Ih-bDp">
-                                                        <rect key="frame" x="0.0" y="8" width="393" height="142"/>
+                                                        <rect key="frame" x="0.0" y="8" width="393" height="108"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타겟" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDB-Yp-AOt">
-                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="47.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="393" height="36"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평점 ⭐️ 6.9" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Isa-L8-Zpm">
-                                                                <rect key="frame" x="0.0" y="47.333333333333314" width="393" height="47.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="36" width="393" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개봉일 : 2023-08-30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xum-oS-pbt">
-                                                                <rect key="frame" x="0.0" y="94.666666666666686" width="393" height="47.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="72" width="393" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -83,7 +84,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TH-Hs-7Ip">
-                                                <rect key="frame" x="0.0" y="430" width="393" height="200"/>
+                                                <rect key="frame" x="0.0" y="396" width="393" height="200"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중고로 세탁기를 구매한 후 사기를 당한 수현은 댓글로 판매자의 거래를 방해하기 시작한다. 머지않아 수현에게 수상한 일들이 일어나기 시작하고, 수현은 경찰에 도움을 요청한다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-Ns-r2i">
                                                         <rect key="frame" x="20" y="0.0" width="353" height="81.333333333333329"/>
@@ -101,58 +102,77 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rC-M0-gpK">
-                                                <rect key="frame" x="0.0" y="630" width="393" height="222"/>
+                                                <rect key="frame" x="0.0" y="596" width="393" height="304"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천 영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oxe-Q8-vNB">
-                                                        <rect key="frame" x="19.999999999999996" y="9.9999999999999982" width="59.666666666666657" height="19.333333333333329"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ewt-24-MwO">
-                                                        <rect key="frame" x="20" y="44.333333333333357" width="353" height="167.66666666666663"/>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7pt-2A-uOG">
+                                                        <rect key="frame" x="0.0" y="100" width="393" height="204"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecommendCell" id="o6s-u0-mrO" customClass="RecommendCell" customModule="MovieReview" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="50" width="353" height="44.666667938232422"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o6s-u0-mrO" id="I64-0d-PfX">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="44.666667938232422"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cs9-rn-yWC">
+                                                            <size key="itemSize" width="128" height="128"/>
+                                                            <size key="headerReferenceSize" width="50" height="50"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCell" id="mYM-fc-5fg" customClass="MovieCell" customModule="MovieReview" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="50" width="393" height="160"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="alm-a9-gTX">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pi-wy-NDU">
-                                                                            <rect key="frame" x="16" y="9.9999999999999982" width="327" height="20.333333333333329"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMY-Ux-MZw">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="160"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="fMY-Ux-MZw" secondAttribute="height" multiplier="3:4" id="z84-Je-ydt"/>
+                                                                            </constraints>
+                                                                        </imageView>
                                                                     </subviews>
                                                                     <constraints>
-                                                                        <constraint firstItem="7pi-wy-NDU" firstAttribute="top" secondItem="I64-0d-PfX" secondAttribute="top" constant="10" id="43d-MT-wFu"/>
-                                                                        <constraint firstItem="7pi-wy-NDU" firstAttribute="leading" secondItem="I64-0d-PfX" secondAttribute="leading" constant="16" id="660-zW-946"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="7pi-wy-NDU" secondAttribute="trailing" constant="10" id="INx-iD-1oi"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="fMY-Ux-MZw" secondAttribute="bottom" id="WGo-Nv-K4e"/>
+                                                                        <constraint firstItem="fMY-Ux-MZw" firstAttribute="top" secondItem="alm-a9-gTX" secondAttribute="top" id="ppq-5R-ysR"/>
+                                                                        <constraint firstItem="fMY-Ux-MZw" firstAttribute="leading" secondItem="alm-a9-gTX" secondAttribute="leading" id="v7a-r6-VgV"/>
                                                                     </constraints>
-                                                                </tableViewCellContentView>
+                                                                </collectionViewCellContentView>
+                                                                <size key="customSize" width="393" height="160"/>
                                                                 <connections>
-                                                                    <outlet property="titleLabel" destination="7pi-wy-NDU" id="zFv-Uk-Dfj"/>
+                                                                    <outlet property="moviePoster" destination="fMY-Ux-MZw" id="lL4-If-BLU"/>
                                                                 </connections>
-                                                            </tableViewCell>
-                                                        </prototypes>
-                                                    </tableView>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TitleHeaderCollectionReusableView" id="xrl-31-4sd" customClass="TitleHeaderCollectionReusableView" customModule="MovieReview" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="추천 영화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dId-Nw-brD">
+                                                                    <rect key="frame" x="10" y="13" width="383" height="24"/>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="dId-Nw-brD" firstAttribute="leading" secondItem="xrl-31-4sd" secondAttribute="leading" constant="10" id="q7R-c8-Fhj"/>
+                                                                <constraint firstItem="dId-Nw-brD" firstAttribute="centerY" secondItem="xrl-31-4sd" secondAttribute="centerY" id="to5-qv-2ox"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dId-Nw-brD" secondAttribute="trailing" id="weW-4i-44r"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="titleLabel" destination="dId-Nw-brD" id="dPV-8a-PtU"/>
+                                                            </connections>
+                                                        </collectionReusableView>
+                                                    </collectionView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="Ewt-24-MwO" secondAttribute="trailing" constant="20" id="9mQ-iF-PKR"/>
-                                                    <constraint firstItem="Oxe-Q8-vNB" firstAttribute="leading" secondItem="7rC-M0-gpK" secondAttribute="leading" constant="20" id="N4w-QK-xeY"/>
-                                                    <constraint firstItem="Ewt-24-MwO" firstAttribute="leading" secondItem="7rC-M0-gpK" secondAttribute="leading" constant="20" id="ejT-Db-dSg"/>
-                                                    <constraint firstItem="Oxe-Q8-vNB" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" constant="10" id="le3-Mu-DLq"/>
-                                                    <constraint firstItem="Ewt-24-MwO" firstAttribute="top" secondItem="Oxe-Q8-vNB" secondAttribute="bottom" constant="15" id="pkk-6b-Y20"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Ewt-24-MwO" secondAttribute="bottom" constant="10" id="zH6-G8-58z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="7pt-2A-uOG" secondAttribute="trailing" id="CAs-M0-sQC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="7pt-2A-uOG" secondAttribute="bottom" id="G7h-xp-1Vy"/>
+                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" constant="100" id="gzv-fT-bOc"/>
+                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="leading" secondItem="7rC-M0-gpK" secondAttribute="leading" id="piX-4a-gd0"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="852" id="f0s-V0-3i3"/>
+                                            <constraint firstAttribute="height" constant="900" id="f0s-V0-3i3"/>
                                             <constraint firstItem="2TH-Hs-7Ip" firstAttribute="top" secondItem="BL5-zl-YE7" secondAttribute="bottom" id="yHK-xH-CU4"/>
                                         </constraints>
                                     </stackView>
@@ -161,6 +181,7 @@
                                     <constraint firstItem="PZu-YA-GN5" firstAttribute="leading" secondItem="HWa-Ye-OWx" secondAttribute="leading" id="4zM-0F-6Ln"/>
                                     <constraint firstAttribute="bottom" secondItem="PZu-YA-GN5" secondAttribute="bottom" id="Br4-mJ-hv6"/>
                                     <constraint firstAttribute="trailing" secondItem="PZu-YA-GN5" secondAttribute="trailing" id="QJE-Vd-Ddw"/>
+                                    <constraint firstAttribute="bottom" secondItem="7rC-M0-gpK" secondAttribute="bottom" id="WaE-0g-fOA"/>
                                     <constraint firstItem="PZu-YA-GN5" firstAttribute="top" secondItem="HWa-Ye-OWx" secondAttribute="top" id="Yse-tq-kFh"/>
                                     <constraint firstItem="PZu-YA-GN5" firstAttribute="centerX" secondItem="HWa-Ye-OWx" secondAttribute="centerX" id="lbs-T9-qbo"/>
                                 </constraints>
@@ -177,9 +198,9 @@
                     </view>
                     <connections>
                         <outlet property="averageLabel" destination="Isa-L8-Zpm" id="4um-07-rn0"/>
+                        <outlet property="collectionView" destination="7pt-2A-uOG" id="s61-oK-Tdx"/>
                         <outlet property="moviePoster" destination="5kD-4o-vYp" id="JOF-nu-IBc"/>
                         <outlet property="overviewLabel" destination="8AV-Ns-r2i" id="hTO-oV-mqF"/>
-                        <outlet property="recommendationsTableView" destination="Ewt-24-MwO" id="seS-DK-mqV"/>
                         <outlet property="releaseLabel" destination="xum-oS-pbt" id="GxH-Lo-RJL"/>
                         <outlet property="titleLabel" destination="qDB-Yp-AOt" id="fZW-lL-F20"/>
                     </connections>
