@@ -60,6 +60,8 @@ class DetailViewController: UIViewController {
         snapshot.appendSections([.recommendations])
         snapshot.appendItems([], toSection: .recommendations)
         datasource.apply(snapshot)
+        
+        self.recommendationsTableView.delegate = self
     }
     
     private func bind() {
@@ -84,25 +86,14 @@ class DetailViewController: UIViewController {
     }
 }
 
-//extension DetailViewController: UITableViewDataSource {
-//    
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print(viewModel.recommendations.count)
-//        return viewModel.recommendations.count
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(
-//            withIdentifier: RecommendCell.identifier,
-//            for: indexPath
-//        ) as? RecommendCell else { return UITableViewCell() }
-//        cell.configure(movie: viewModel.recommendations[indexPath.row])
-//        return cell
-//    }
-//}
-
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let sb = UIStoryboard(name: "Detail", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        vc.viewModel = DetailViewModel(
+            network: NetworkService(configuration: .default),
+            movieDetail: viewModel.recommendations[indexPath.row]
+        )
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
