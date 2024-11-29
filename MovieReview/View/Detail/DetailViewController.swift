@@ -32,7 +32,6 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        recommendationsTableView.delegate = self
         setupUI()
         configureTableView()
         bind()

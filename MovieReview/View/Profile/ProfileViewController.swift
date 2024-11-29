@@ -20,12 +20,16 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupUI()
         viewModel.fetchUserDetails()
         bind()
     }
     
-    func bind() {
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+    }
+    
+    private func bind() {
         viewModel.$userDetails
             .compactMap { $0 }
             .receive(on: RunLoop.main)

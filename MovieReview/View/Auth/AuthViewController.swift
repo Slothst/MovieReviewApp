@@ -28,31 +28,27 @@ class AuthViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Sign In"
-        view.backgroundColor = .systemBackground
-//        bind()
-        webView.navigationDelegate = self
-        guard let url = viewModel.signInURL else {
-            return
-        }
-        view.addSubview(webView)
-        webView.load(URLRequest(url: url))
+        setupUI()
+        loadWebView()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds
     }
+
+    private func setupUI() {
+        title = "Sign In"
+        view.backgroundColor = .systemBackground
+    }
     
-    private func bind() {
-//        viewModel.$requestTokenResponse
-//            .compactMap { $0 }
-//            .receive(on: RunLoop.main)
-//            .sink { requestTokenResponse in
-//                self.requestToken = requestTokenResponse.request_token
-////                print(self.requestToken)
-//            }.store(in: &subscriptions)
-        
+    private func loadWebView() {
+        webView.navigationDelegate = self
+        guard let url = viewModel.signInURL else {
+            return
+        }
+        view.addSubview(webView)
+        webView.load(URLRequest(url: url))
     }
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
