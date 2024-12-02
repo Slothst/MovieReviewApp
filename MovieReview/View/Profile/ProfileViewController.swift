@@ -7,11 +7,11 @@
 
 import UIKit
 import Combine
+import Kingfisher
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var id: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var username: UILabel!
     
     let viewModel: ProfileViewModel = ProfileViewModel(network: NetworkService(configuration: .default))
@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        configureImageView()
         viewModel.fetchUserDetails()
         bind()
     }
@@ -29,14 +30,18 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = .systemBackground
     }
     
+    private func configureImageView() {
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
+        profileImageView.clipsToBounds = true
+    }
+    
     private func bind() {
         viewModel.$userDetails
             .compactMap { $0 }
             .receive(on: RunLoop.main)
             .sink { userDetails in
-                self.id.text = "\(userDetails.id)"
-                self.name.text = "\(userDetails.name ?? "")"
-                self.username.text = "\(userDetails.username)"
+                self.profileImageView.kf.setImage(with: userDetails.imageURL)
+                self.username.text = "\(userDetails.name ?? userDetails.username)"
             }.store(in: &subscriptions)
     }
 }

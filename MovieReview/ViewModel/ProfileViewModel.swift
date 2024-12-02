@@ -45,7 +45,6 @@ final class ProfileViewModel {
                 }
             } receiveValue: { userDetails in
                 self.userDetails = userDetails
-                print(userDetails)
             }.store(in: &subscriptions)
     }
 }
