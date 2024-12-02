@@ -52,6 +52,9 @@
 		25CD75852BAEBB4B00012F56 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CD75842BAEBB4B00012F56 /* MovieCell.swift */; };
 		25FEA2382CF83D6600F7DD7C /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FEA2362CF83D6600F7DD7C /* Profile.storyboard */; };
 		25FEA23A2CF83E5300F7DD7C /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEA2392CF83E5300F7DD7C /* UserDetails.swift */; };
+		25FEA23D2CFDFB2100F7DD7C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 25FEA23C2CFDFB2100F7DD7C /* Lottie */; };
+		25FEA2422CFE077D00F7DD7C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEA2412CFE077D00F7DD7C /* SplashViewController.swift */; };
+		25FEA2462CFE0DB700F7DD7C /* Splash.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25FEA2452CFE0DB700F7DD7C /* Splash.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,8 @@
 		25CD75842BAEBB4B00012F56 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		25FEA2372CF83D6600F7DD7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../Main/Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		25FEA2392CF83E5300F7DD7C /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
+		25FEA2412CFE077D00F7DD7C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		25FEA2452CFE0DB700F7DD7C /* Splash.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Splash.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				254D58792BAF24D9004738F6 /* Kingfisher in Frameworks */,
+				25FEA23D2CFDFB2100F7DD7C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +193,7 @@
 		254D585E2BAEC207004738F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25FEA2402CFE063B00F7DD7C /* Splash */,
 				25FEA2352CF83D4900F7DD7C /* Profile */,
 				252C21692CDF580900387D08 /* Auth */,
 				252C21612CDF568C00387D08 /* Welcome */,
@@ -312,7 +319,6 @@
 				25CD75542BAE8F9400012F56 /* AppDelegate.swift */,
 				25CD75562BAE8F9400012F56 /* SceneDelegate.swift */,
 				25CD755D2BAE8F9600012F56 /* Assets.xcassets */,
-				25CD755F2BAE8F9600012F56 /* LaunchScreen.storyboard */,
 				25CD75622BAE8F9600012F56 /* Info.plist */,
 				254D58572BAEBE36004738F6 /* Utils */,
 				254D58522BAEBC15004738F6 /* Network */,
@@ -346,6 +352,16 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		25FEA2402CFE063B00F7DD7C /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				25CD755F2BAE8F9600012F56 /* LaunchScreen.storyboard */,
+				25FEA2452CFE0DB700F7DD7C /* Splash.storyboard */,
+				25FEA2412CFE077D00F7DD7C /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -364,6 +380,7 @@
 			name = MovieReview;
 			packageProductDependencies = (
 				254D58782BAF24D9004738F6 /* Kingfisher */,
+				25FEA23C2CFDFB2100F7DD7C /* Lottie */,
 			);
 			productName = MovieReview;
 			productReference = 25CD75512BAE8F9400012F56 /* MovieReview.app */;
@@ -439,6 +456,7 @@
 			mainGroup = 25CD75482BAE8F9400012F56;
 			packageReferences = (
 				254D58772BAF24D9004738F6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				25FEA23B2CFDFB2100F7DD7C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 25CD75522BAE8F9400012F56 /* Products */;
 			projectDirPath = "";
@@ -464,6 +482,7 @@
 				25AF00BA2CECBF4100EA92B7 /* Welcome.storyboard in Resources */,
 				25FEA2382CF83D6600F7DD7C /* Profile.storyboard in Resources */,
 				254D58702BAF07BD004738F6 /* Home.storyboard in Resources */,
+				25FEA2462CFE0DB700F7DD7C /* Splash.storyboard in Resources */,
 				252C216D2CDF5B9300387D08 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +529,7 @@
 				254D58682BAEC679004738F6 /* Movie.swift in Sources */,
 				254D58592BAEBE4F004738F6 /* Publisher+Utils.swift in Sources */,
 				25C1E6312C41291300632AB2 /* RecommendCell.swift in Sources */,
+				25FEA2422CFE077D00F7DD7C /* SplashViewController.swift in Sources */,
 				2580E3932BB464AF00E7050A /* APIInfo.swift in Sources */,
 				25AF00BE2CF0A0A700EA92B7 /* Session.swift in Sources */,
 				25C978E32BB2929800F8FF06 /* SearchCell.swift in Sources */,
@@ -911,6 +931,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		25FEA23B2CFDFB2100F7DD7C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -918,6 +946,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 254D58772BAF24D9004738F6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		25FEA23C2CFDFB2100F7DD7C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25FEA23B2CFDFB2100F7DD7C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

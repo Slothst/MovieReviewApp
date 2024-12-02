@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PZu-YA-GN5">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="900"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="850"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKt-2l-hTI">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="280"/>
@@ -102,10 +102,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rC-M0-gpK">
-                                                <rect key="frame" x="0.0" y="596" width="393" height="304"/>
+                                                <rect key="frame" x="0.0" y="596" width="393" height="254"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7pt-2A-uOG">
-                                                        <rect key="frame" x="0.0" y="100" width="393" height="204"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="254"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cs9-rn-yWC">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -166,13 +166,13 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="7pt-2A-uOG" secondAttribute="trailing" id="CAs-M0-sQC"/>
                                                     <constraint firstAttribute="bottom" secondItem="7pt-2A-uOG" secondAttribute="bottom" id="G7h-xp-1Vy"/>
-                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" constant="100" id="gzv-fT-bOc"/>
+                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" id="gzv-fT-bOc"/>
                                                     <constraint firstItem="7pt-2A-uOG" firstAttribute="leading" secondItem="7rC-M0-gpK" secondAttribute="leading" id="piX-4a-gd0"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="900" id="f0s-V0-3i3"/>
+                                            <constraint firstAttribute="height" constant="850" id="f0s-V0-3i3"/>
                                             <constraint firstItem="2TH-Hs-7Ip" firstAttribute="top" secondItem="BL5-zl-YE7" secondAttribute="bottom" id="yHK-xH-CU4"/>
                                         </constraints>
                                     </stackView>

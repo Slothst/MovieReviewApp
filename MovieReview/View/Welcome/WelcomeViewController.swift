@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Lottie
 
 class WelcomeViewController: UIViewController {
     
@@ -17,16 +18,18 @@ class WelcomeViewController: UIViewController {
     var requestTokenResponse: RequestTokenReponse!
     
     @IBOutlet weak var button: UIButton!
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemBackground
-        
+        setUpUI()
         checkHasSession()
         bind()
         viewModel.fetchRequestToken()
+    }
+    
+    private func setUpUI() {
+        view.backgroundColor = .systemBackground
     }
     
     private func checkHasSession() {
