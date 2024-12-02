@@ -23,8 +23,17 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        
+        checkHasSession()
         bind()
         viewModel.fetchRequestToken()
+    }
+    
+    private func checkHasSession() {
+        guard UserDefaults.standard.string(forKey: "session_id") != nil else {
+            return
+        }
+        goToMain()
     }
 
     func bind() {
@@ -64,6 +73,10 @@ class WelcomeViewController: UIViewController {
             present(alert, animated: true)
             return
         }
+        goToMain()
+    }
+    
+    private func goToMain() {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
         vc.navigationItem.largeTitleDisplayMode = .never
