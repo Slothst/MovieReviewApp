@@ -15,6 +15,7 @@ final class ProfileViewModel {
     var subscriptions = Set<AnyCancellable>()
     
     @Published var userDetails: UserDetails?
+    @Published var buttonTapped = PassthroughSubject<Void, Never>()
     
     init(network: NetworkService) {
         self.network = network
@@ -46,5 +47,9 @@ final class ProfileViewModel {
             } receiveValue: { userDetails in
                 self.userDetails = userDetails
             }.store(in: &subscriptions)
+    }
+    
+    public func signOut() {
+        UserDefaults.standard.setValue(nil, forKey: "session_id")
     }
 }

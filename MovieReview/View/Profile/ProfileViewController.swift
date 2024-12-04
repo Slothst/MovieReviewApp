@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
     
     let viewModel: ProfileViewModel = ProfileViewModel(network: NetworkService(configuration: .default))
     
@@ -43,5 +44,22 @@ class ProfileViewController: UIViewController {
                 self.profileImageView.kf.setImage(with: userDetails.imageURL)
                 self.username.text = "\(userDetails.name ?? userDetails.username)"
             }.store(in: &subscriptions)
+        
+        viewModel.buttonTapped
+            .sink { _ in
+                let sb = UIStoryboard(name: "Welcome", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "WelcomeViewController") as! WelcomeViewController
+                vc.viewModel = WelcomeViewModel(
+                    network: NetworkService(configuration: .default)
+                )
+                vc.navigationItem.largeTitleDisplayMode = .never
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+            }.store(in: &subscriptions)
+    }
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        viewModel.signOut()
+        viewModel.buttonTapped.send()
     }
 }

@@ -193,17 +193,16 @@
 		254D585E2BAEC207004738F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				25FEA2402CFE063B00F7DD7C /* Splash */,
-				25FEA2352CF83D4900F7DD7C /* Profile */,
 				252C21692CDF580900387D08 /* Auth */,
-				252C21612CDF568C00387D08 /* Welcome */,
-				254D58852BB28BFF004738F6 /* Main */,
-				254D58862BB28C13004738F6 /* Home */,
-				254D58872BB28C1E004738F6 /* Detail */,
-				254D58882BB28C2A004738F6 /* Search */,
 				254D587C2BAF2640004738F6 /* Cell */,
-				2580E3972BB4707F00E7050A /* LoadingView.swift */,
-				25C1E62A2C3D0EB500632AB2 /* GuideView.swift */,
+				254D58872BB28C1E004738F6 /* Detail */,
+				254D58862BB28C13004738F6 /* Home */,
+				254D58852BB28BFF004738F6 /* Main */,
+				25FEA2472CFED8B400F7DD7C /* Others */,
+				25FEA2352CF83D4900F7DD7C /* Profile */,
+				254D58882BB28C2A004738F6 /* Search */,
+				25FEA2402CFE063B00F7DD7C /* Splash */,
+				252C21612CDF568C00387D08 /* Welcome */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,14 +313,14 @@
 			children = (
 				2580E3942BB46B9400E7050A /* Extension */,
 				254D58662BAEC672004738F6 /* Model */,
-				254D58632BAEC635004738F6 /* ViewModel */,
 				254D585E2BAEC207004738F6 /* View */,
+				254D58632BAEC635004738F6 /* ViewModel */,
+				254D58572BAEBE36004738F6 /* Utils */,
+				254D58522BAEBC15004738F6 /* Network */,
 				25CD75542BAE8F9400012F56 /* AppDelegate.swift */,
 				25CD75562BAE8F9400012F56 /* SceneDelegate.swift */,
 				25CD755D2BAE8F9600012F56 /* Assets.xcassets */,
 				25CD75622BAE8F9600012F56 /* Info.plist */,
-				254D58572BAEBE36004738F6 /* Utils */,
-				254D58522BAEBC15004738F6 /* Network */,
 			);
 			path = MovieReview;
 			sourceTree = "<group>";
@@ -360,6 +359,15 @@
 				25FEA2412CFE077D00F7DD7C /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		25FEA2472CFED8B400F7DD7C /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				2580E3972BB4707F00E7050A /* LoadingView.swift */,
+				25C1E62A2C3D0EB500632AB2 /* GuideView.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

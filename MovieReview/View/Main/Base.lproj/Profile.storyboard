@@ -30,6 +30,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="laf-uI-ur8">
+                                <rect key="frame" x="242" y="359" width="111" height="34"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="로그아웃">
+                                    <color key="titleColor" systemColor="systemRedColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="lKk-P0-25C" eventType="touchUpInside" id="UV9-H8-XKE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZGv-ye-ilk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -39,10 +49,14 @@
                             <constraint firstItem="pAW-fL-lBE" firstAttribute="top" secondItem="ZGv-ye-ilk" secondAttribute="top" id="Hfi-SG-HmG"/>
                             <constraint firstItem="pAW-fL-lBE" firstAttribute="leading" secondItem="ZGv-ye-ilk" secondAttribute="leading" constant="16" id="NHZ-3b-8TX"/>
                             <constraint firstItem="Yqe-wE-w8u" firstAttribute="leading" secondItem="pAW-fL-lBE" secondAttribute="trailing" constant="15" id="WqT-vH-WaP"/>
+                            <constraint firstItem="laf-uI-ur8" firstAttribute="top" secondItem="ZGv-ye-ilk" secondAttribute="top" constant="300" id="alm-iS-MBz"/>
+                            <constraint firstItem="ZGv-ye-ilk" firstAttribute="trailing" secondItem="laf-uI-ur8" secondAttribute="trailing" constant="40" id="iQP-XK-MS4"/>
+                            <constraint firstItem="laf-uI-ur8" firstAttribute="leading" secondItem="pAW-fL-lBE" secondAttribute="trailing" constant="76" id="nJY-Gy-ZUz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SgI-JT-sp8"/>
                     <connections>
+                        <outlet property="logoutButton" destination="laf-uI-ur8" id="KUi-Z3-2gl"/>
                         <outlet property="profileImageView" destination="pAW-fL-lBE" id="0cT-sn-inO"/>
                         <outlet property="username" destination="Yqe-wE-w8u" id="5MQ-jf-A5P"/>
                     </connections>
@@ -55,6 +69,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

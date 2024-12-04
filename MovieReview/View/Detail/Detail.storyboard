@@ -86,7 +86,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2TH-Hs-7Ip">
                                                 <rect key="frame" x="0.0" y="396" width="393" height="200"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중고로 세탁기를 구매한 후 사기를 당한 수현은 댓글로 판매자의 거래를 방해하기 시작한다. 머지않아 수현에게 수상한 일들이 일어나기 시작하고, 수현은 경찰에 도움을 요청한다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-Ns-r2i">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중고로 세탁기를 구매한 후 사기를 당한 수현은 댓글로 판매자의 거래를 방해하기 시작한다. 머지않아 수현에게 수상한 일들이 일어나기 시작하고, 수현은 경찰에 도움을 요청한다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AV-Ns-r2i">
                                                         <rect key="frame" x="20" y="0.0" width="353" height="81.333333333333329"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -105,7 +105,7 @@
                                                 <rect key="frame" x="0.0" y="596" width="393" height="254"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7pt-2A-uOG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="254"/>
+                                                        <rect key="frame" x="0.0" y="10" width="393" height="244"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cs9-rn-yWC">
                                                             <size key="itemSize" width="128" height="128"/>
@@ -166,7 +166,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="7pt-2A-uOG" secondAttribute="trailing" id="CAs-M0-sQC"/>
                                                     <constraint firstAttribute="bottom" secondItem="7pt-2A-uOG" secondAttribute="bottom" id="G7h-xp-1Vy"/>
-                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" id="gzv-fT-bOc"/>
+                                                    <constraint firstItem="7pt-2A-uOG" firstAttribute="top" secondItem="7rC-M0-gpK" secondAttribute="top" constant="10" id="gzv-fT-bOc"/>
                                                     <constraint firstItem="7pt-2A-uOG" firstAttribute="leading" secondItem="7rC-M0-gpK" secondAttribute="leading" id="piX-4a-gd0"/>
                                                 </constraints>
                                             </view>

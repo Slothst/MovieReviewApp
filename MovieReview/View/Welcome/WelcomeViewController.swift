@@ -23,20 +23,12 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         setUpUI()
-        checkHasSession()
         bind()
         viewModel.fetchRequestToken()
     }
     
     private func setUpUI() {
         view.backgroundColor = .systemBackground
-    }
-    
-    private func checkHasSession() {
-        guard UserDefaults.standard.string(forKey: "session_id") != nil else {
-            return
-        }
-        goToMain()
     }
 
     func bind() {

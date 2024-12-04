@@ -26,12 +26,16 @@ class SplashViewController: UIViewController {
         super.viewDidAppear(animated)
         
         animationView.play { _ in
-            let sb = UIStoryboard(name: "Welcome", bundle: nil)
-            let vc = sb.instantiateInitialViewController()
-            
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
-                window.rootViewController = vc
+            if self.checkHasSession() {
+                return
+            } else {
+                let sb = UIStoryboard(name: "Welcome", bundle: nil)
+                let vc = sb.instantiateInitialViewController()
+                
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+                    window.rootViewController = vc
+                }
             }
         }
     }
@@ -41,5 +45,21 @@ class SplashViewController: UIViewController {
         animationView.frame = view.bounds
         animationView.center = view.center
         animationView.alpha = 1
+    }
+    
+    private func checkHasSession() -> Bool {
+        guard UserDefaults.standard.string(forKey: "session_id") != nil else {
+            return false
+        }
+        goToMain()
+        return true
+    }
+    
+    private func goToMain() {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "MainTabBarController") as! MainTabBarController
+        vc.navigationItem.largeTitleDisplayMode = .never
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

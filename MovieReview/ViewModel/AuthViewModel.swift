@@ -91,9 +91,4 @@ final class AuthViewModel {
     public func cacheSession(session: Session) {
         UserDefaults.standard.setValue(session.session_id, forKey: "session_id")
     }
-    
-    public func signOut(completion: @escaping (Bool) -> Void) {
-        UserDefaults.standard.setValue(nil, forKey: "session_id")
-        completion(true)
-    }
 }
