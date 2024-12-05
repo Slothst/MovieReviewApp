@@ -29,13 +29,7 @@ class SplashViewController: UIViewController {
             if self.checkHasSession() {
                 return
             } else {
-                let sb = UIStoryboard(name: "Welcome", bundle: nil)
-                let vc = sb.instantiateInitialViewController()
-                
-                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                   let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
-                    window.rootViewController = vc
-                }
+                self.changeRootViewToWelcomeViewController()
             }
         }
     }
@@ -61,5 +55,15 @@ class SplashViewController: UIViewController {
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+    }
+    
+    private func changeRootViewToWelcomeViewController() {
+        let sb = UIStoryboard(name: "Welcome", bundle: nil)
+        let vc = sb.instantiateInitialViewController()
+        
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+            window.rootViewController = vc
+        }
     }
 }

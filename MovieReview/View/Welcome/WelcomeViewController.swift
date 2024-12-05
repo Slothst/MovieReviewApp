@@ -61,11 +61,12 @@ class WelcomeViewController: UIViewController {
     }
     
     private func handleSignIn(success: Bool) {
-        // Log user in or yell at them for error
         guard success else {
-            let alert = UIAlertController(title: "Oops", message: "Something went wrong when signing in.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "오류", message: "오류가 발생했습니다. 다시 시도해주세요.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .cancel, handler: nil))
             present(alert, animated: true)
+            viewModel.fetchRequestToken()
+            self.navigationController?.popToRootViewController(animated: true)
             return
         }
         goToMain()

@@ -59,7 +59,7 @@ final class AuthViewModel {
             }.store(in: &subscriptions)
     }
     
-    func createSession(completion: @escaping (Bool) -> Void) {
+    func createSession(completions: @escaping (Bool) -> Void) {
         guard let requestToken = requestTokenResponse?.request_token else {
             return
         }
@@ -78,13 +78,14 @@ final class AuthViewModel {
                 switch completion {
                 case .failure(let error):
                     print("---> error: \(error)")
+                    completions(false)
                 case .finished:
                     break
                 }
             } receiveValue: { session in
                 self.session = session
                 self.cacheSession(session: session)
-                completion(true)
+                completions(true)
             }.store(in: &subscriptions)
     }
     

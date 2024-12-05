@@ -52,14 +52,20 @@ class ProfileViewController: UIViewController {
                 vc.viewModel = WelcomeViewModel(
                     network: NetworkService(configuration: .default)
                 )
-                vc.navigationItem.largeTitleDisplayMode = .never
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                let navController = UINavigationController(rootViewController: vc)
+                navController.modalPresentationStyle = .fullScreen
+                navController.isNavigationBarHidden = true
+                self.present(navController, animated: true)
             }.store(in: &subscriptions)
     }
     
     @IBAction func logoutTapped(_ sender: Any) {
-        viewModel.signOut()
-        viewModel.buttonTapped.send()
+        let alert = UIAlertController(title: "로그아웃", message: "로그아웃 하시겠습니까?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "예", style: .destructive, handler: { _ in
+            self.viewModel.signOut()
+            self.viewModel.buttonTapped.send()
+        }))
+        alert.addAction(UIAlertAction(title: "아니오", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
 }
