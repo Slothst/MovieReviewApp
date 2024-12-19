@@ -23,12 +23,21 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         setUpUI()
+        setUpButtonUI()
         bind()
         viewModel.fetchRequestToken()
     }
     
     private func setUpUI() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .black
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setUpButtonUI() {
+        button.frame.size.height = 50
+        button.layer.cornerRadius = 30
+        button.backgroundColor = .label
+        button.titleLabel?.textColor = .systemBackground
     }
 
     func bind() {
@@ -51,7 +60,6 @@ class WelcomeViewController: UIViewController {
                         self?.handleSignIn(success: success)
                     }
                 }
-                vc.navigationItem.largeTitleDisplayMode = .never
                 self.navigationController?.pushViewController(vc, animated: true)
             }.store(in: &subscriptions)
     }

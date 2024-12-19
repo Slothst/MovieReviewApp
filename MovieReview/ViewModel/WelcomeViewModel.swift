@@ -23,7 +23,6 @@ final class WelcomeViewModel {
     var subscriptions = Set<AnyCancellable>()
     
     func fetchRequestToken() {
-        print("called")
         let resource: Resource<RequestTokenReponse> = Resource(
             base: APIInfo.baseURL,
             path: "3/authentication/token/new",
